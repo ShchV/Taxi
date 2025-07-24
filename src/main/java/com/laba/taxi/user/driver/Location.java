@@ -29,7 +29,7 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location { name = %s }".formatted(this.name);
+        return " = %s ".formatted(this.name);
     }
 
     public void setName(String name) {

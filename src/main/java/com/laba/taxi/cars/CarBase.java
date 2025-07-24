@@ -52,12 +52,12 @@ public abstract class CarBase implements Car {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "{" +
-                "model='" + model + '\'' +
-                ", color='" + color + '\'' +
-                ", carNumber=" + carNumber +
-                ", available=" + available +
-                ", carType=" + carType +
-                '}';
+        return getClass().getSimpleName() + " " +
+                "model= '" + model + '\'' +
+                ", color= '" + color + '\'' +
+                ", carNumber= " + carNumber +
+                ", available= " + available +
+                ", carType= " + carType +
+                ' ';
     }
 }

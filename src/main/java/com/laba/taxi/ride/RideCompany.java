@@ -4,6 +4,7 @@ import com.laba.taxi.interfaces.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class RideCompany {
 
@@ -32,16 +33,21 @@ public class RideCompany {
     }
 
     public Car dispatchAvailableCar() {
-        for (Car car : fleet) {
-            if (car.isAvailable()) {
-                car.setAvailable(false);
-                return car;
-            }
-        }
-        return null;
+        Optional<Car> availableCar = fleet.stream()
+                .filter(Car::isAvailable)
+                .findFirst();
+
+        availableCar.ifPresent(car -> car.setAvailable(false));
+        return availableCar.orElse(null);
     }
 
     public void organizeRide(Ride<?, ?> ride) {
         System.out.println("Ride organized: " + ride);
+    }
+
+    public void printAvailableCars() {
+        fleet.stream()
+                .filter(Car::isAvailable)
+                .forEach(car -> System.out.println("Available: " + car));
     }
 }

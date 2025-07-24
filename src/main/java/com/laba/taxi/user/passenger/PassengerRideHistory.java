@@ -1,11 +1,47 @@
 package com.laba.taxi.user.passenger;
 
-import com.laba.taxi.ride.RideHistoryBase;
+import com.laba.taxi.ride.Ride;
+import com.laba.taxi.interfaces.RideHistory;
 
-public class PassengerRideHistory extends RideHistoryBase {
+import java.util.ArrayList;
+import java.util.List;
+
+public class PassengerRideHistory implements RideHistory {
+    private List<Ride> rides = new ArrayList<>();
+
+    @Override
+    public String getRide(String i) {
+        return "Ride started";
+    }
+
+    @Override
+    public void addRide(Ride ride) {
+        rides.add(ride);
+    }
+
+    @Override
+    public Ride getRide(int index) {
+        return null;
+    }
+
+    @Override
+    public void addRide(String rideDetails) {
+
+    }
+
     @Override
     public void printHistory() {
-        System.out.println("Passenger Ride History");
-        super.printHistory();
+
+    }
+
+    public void printAllRides() {
+        rides.stream().forEach(System.out::println);
+    }
+
+    public long countRidesAboveDistance(int minDistance) {
+        return rides.stream()
+                .filter(ride -> ride.getDistance() > minDistance)
+                .count();
     }
 }
+

@@ -27,7 +27,7 @@ public class Passenger extends Person implements PaymentMethod, Printable {
 
     @Override
     public void introduce() {
-        System.out.println("laba.PassengerInfo.Passenger " + name);
+        System.out.println("Passenger name = " + name);
     }
 
     @Override
@@ -37,6 +37,6 @@ public class Passenger extends Person implements PaymentMethod, Printable {
 
     @Override
     public String toString() {
-        return "laba.PassengerInfo.Passenger name = " + name + " , phone = " + phoneNumber + " , balance = $" + balance + " ";
+        return "Passenger name = " + name + " , phone = " + phoneNumber + " , balance = $" + balance + " ";
     }
 }

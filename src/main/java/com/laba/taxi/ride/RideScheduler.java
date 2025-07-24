@@ -10,10 +10,11 @@ public class RideScheduler {
     public void planRide(Ride<?, ?> newRide, List<Schedulable> existingRides)
             throws ScheduleConflictException {
 
-        for (Schedulable ride : existingRides) {
-            if (ride.conflictsWith(newRide)) {
-                throw new ScheduleConflictException("Ride conflicts with existing schedule.");
-            }
+        boolean hasConflict = existingRides.stream()
+                .anyMatch(ride -> ride.conflictsWith(newRide));
+
+        if (hasConflict) {
+            throw new ScheduleConflictException("Ride conflicts with existing schedule.");
         }
     }
 }
