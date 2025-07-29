@@ -1,7 +1,17 @@
 package com.laba.taxi.ride;
+<<<<<<< HEAD
 import com.laba.taxi.interfaces.RideHistory;
 
 public abstract class RideHistoryBase extends HistoryBase<Ride> implements RideHistory {
+=======
+
+import com.laba.taxi.interfaces.RideHistory;
+
+import java.util.logging.Logger;
+
+public abstract class RideHistoryBase extends HistoryBase<Ride> implements RideHistory {
+    private static final Logger logger = Logger.getLogger(RideHistoryBase.class.getName());
+>>>>>>> 7e46d72 (Final project)
 
     @Override
     public void addRide(Ride ride) {
@@ -16,13 +26,21 @@ public abstract class RideHistoryBase extends HistoryBase<Ride> implements RideH
     @Override
     public void printHistory() {
         for (Ride ride : historyList) {
+<<<<<<< HEAD
             System.out.println(ride);
+=======
+            logger.info(ride.toString());
+>>>>>>> 7e46d72 (Final project)
         }
     }
 
     @Override
     public void addRide(String rideDetails) {
+<<<<<<< HEAD
         System.out.println("Adding ride from String not implemented: " + rideDetails);
+=======
+        logger.warning("Adding ride from String not implemented: " + rideDetails);
+>>>>>>> 7e46d72 (Final project)
     }
 
     @Override
@@ -36,3 +54,7 @@ public abstract class RideHistoryBase extends HistoryBase<Ride> implements RideH
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7e46d72 (Final project)

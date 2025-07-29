@@ -11,10 +11,21 @@ import com.laba.taxi.ride.*;
 import com.laba.taxi.user.driver.*;
 import com.laba.taxi.user.passenger.Passenger;
 import com.laba.taxi.user.passenger.PassengerRideHistory;
+<<<<<<< HEAD
+=======
+import com.laba.taxi.utils.AnnotationReader;
+import com.laba.taxi.user.driver.Pair;
+import com.laba.taxi.user.driver.Response;
+import java.util.logging.Logger;
+import com.laba.taxi.utils.LoggerTask;
+import com.laba.taxi.user.passenger.Passenger;
+import com.laba.taxi.utils.AnnotationService;
+>>>>>>> 7e46d72 (Final project)
 
 import java.util.*;
 
 public class Main {
+<<<<<<< HEAD
     public static void main(String[] args) {
 
         RideCompany company = new RideCompany("Quick Taxi");
@@ -25,6 +36,21 @@ public class Main {
 
         Passenger alice = new Passenger("Alice", "099-111-22-33", kyiv, lviv, 500);
         Passenger bob = new Passenger("Bob", "066-222-33-44", odessa, kyiv, 400);
+=======
+    private static final Logger logger = Logger.getLogger(Main.class.getName());
+
+    public static void main(String[] args) {
+        logger.info("Welcome to Laba Taxi Service!");
+
+        RideCompany company = new RideCompany("Quick Taxi");
+
+        Location kyiv = new Location(	50.450001, 	30.523333);
+        Location lviv = new Location(49.842957, 24.031111);
+        Location odessa = new Location(46.482952, 	30.712481);
+
+        Passenger alice = new Passenger("Alice", "099-111-22-33", kyiv, lviv, 900);
+        Passenger bob = new Passenger("Bob", "066-222-33-44", odessa, kyiv, 700);
+>>>>>>> 7e46d72 (Final project)
 
         Driver Max = new Driver("Max", "088-888-88-88", kyiv, lviv, 5);
 
@@ -50,6 +76,12 @@ public class Main {
         PassengerRideHistory passengerHistory = new PassengerRideHistory();
         DriverRideHistory driverHistory = new DriverRideHistory();
 
+<<<<<<< HEAD
+=======
+        AnnotationService annotationService = new AnnotationService();
+        annotationService.printEntityMetadata(Passenger.class);
+
+>>>>>>> 7e46d72 (Final project)
         // Ride 1
         Car car1 = company.dispatchAvailableCar();
         Ride<Car, Passenger> ride1 = null;
@@ -64,18 +96,32 @@ public class Main {
                 company.organizeRide(ride1);
                 ridePrinter.printRideInfo(ride1);
 
+<<<<<<< HEAD
                 System.out.println("Car Type: " + ((CarBase) car1).getCarType());
                 System.out.println("Ride Status: " + ride1.getRideStatus());
                 System.out.println("Payment: " + ride1.getPaymentMethod());
+=======
+                logger.info("Car Type: " + ((CarBase) car1).getCarType());
+                logger.info("Ride Status: " + ride1.getRideStatus());
+                logger.info("Payment: " + ride1.getPaymentMethod());
+>>>>>>> 7e46d72 (Final project)
 
                 car1.setAvailable(true);
 
             } catch (ScheduleConflictException e) {
+<<<<<<< HEAD
                 System.err.println("Ride 1 failed: " + e.getMessage());
                 car1.setAvailable(true);
             }
         } else {
             System.err.println("No available car for Ride 1.");
+=======
+                logger.severe("Ride 1 failed: " + e.getMessage());
+                car1.setAvailable(true);
+            }
+        } else {
+            logger.severe("No available car for Ride 1.");
+>>>>>>> 7e46d72 (Final project)
         }
 
         // Ride 2
@@ -92,18 +138,32 @@ public class Main {
                 company.organizeRide(ride2);
                 ridePrinter.printRideInfo(ride2);
 
+<<<<<<< HEAD
                 System.out.println("Car Type: " + ((CarBase) car2).getCarType());
                 System.out.println("Ride Status: " + ride2.getRideStatus());
                 System.out.println("Payment: " + ride2.getPaymentMethod());
+=======
+                logger.info("Car Type: " + ((CarBase) car2).getCarType());
+                logger.info("Ride Status: " + ride2.getRideStatus());
+                logger.info("Payment: " + ride2.getPaymentMethod());
+>>>>>>> 7e46d72 (Final project)
 
                 car2.setAvailable(true);
 
             } catch (CarNotAvailableException | ScheduleConflictException e) {
+<<<<<<< HEAD
                 System.err.println("Ride 2 failed: " + e.getMessage());
                 car2.setAvailable(true);
             }
         } else {
             System.err.println("No available car for Ride 2.");
+=======
+                logger.severe("Ride 2 failed: " + e.getMessage());
+                car2.setAvailable(true);
+            }
+        } else {
+            logger.severe("No available car for Ride 2.");
+>>>>>>> 7e46d72 (Final project)
         }
 
         if (ride1 != null) {
@@ -116,11 +176,44 @@ public class Main {
             driverHistory.addRide(ride2);
         }
 
+<<<<<<< HEAD
         System.out.println("\n=== Passenger Ride History ===");
         passengerHistory.printHistory();
 
         System.out.println("\n=== Driver Ride History ===");
         driverHistory.printHistory();
 
+=======
+        logger.info("\n   = Passenger Ride History =   ");
+        passengerHistory.printHistory();
+
+        logger.info("\n   = Driver Ride History =   ");
+        driverHistory.printHistory();
+
+        logger.info("   = EntityInfo Annotation =   ");
+        AnnotationReader.printEntityInfo(Pair.class);
+        AnnotationReader.printEntityInfo(Response.class);
+
+        for (int i = 1; i <= 3; i++) {
+            Thread thread = new Thread(new LoggerTask("Worker-" + i));
+            thread.start();
+        }
+
+        logger.info("Car Type: " + ((CarBase) car1).getCarType());
+        logger.info("Ride Status: " + ride1.getRideStatus());
+
+        CarType type = CarType.BUSINESS;
+        PaymentMethod payment = PaymentMethod.CARD;
+        RideStatus status = RideStatus.SCHEDULED;
+
+        logger.info("Selected car type: " + type);
+        logger.info("Chosen payment method: " + payment);
+        logger.info("Ride status: " + status);
+
+        logger.info("Available Car Types:");
+        for (CarType ct : CarType.values()) {
+                logger.info("- " + ct.name());
+        }
+>>>>>>> 7e46d72 (Final project)
     }
 }

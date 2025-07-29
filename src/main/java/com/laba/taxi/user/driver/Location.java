@@ -1,5 +1,6 @@
 package com.laba.taxi.user.driver;
 
+<<<<<<< HEAD
 import java.util.Objects;
 
 public class Location {
@@ -37,3 +38,14 @@ public class Location {
     }
 }
 
+=======
+public record Location(double latitude, double longitude) {
+    @Override
+    public String toString() {
+        return "Location " +
+                "latitude=" + latitude +
+                ", longitude=" + longitude +
+                ' ';
+    }
+}
+>>>>>>> 7e46d72 (Final project)
