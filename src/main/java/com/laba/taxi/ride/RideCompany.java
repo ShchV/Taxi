@@ -5,15 +5,11 @@ import com.laba.taxi.interfaces.Car;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-<<<<<<< HEAD
-
-public class RideCompany {
-=======
 import java.util.logging.Logger;
+
 
 public class RideCompany {
     private static final Logger logger = Logger.getLogger(RideCompany.class.getName());
->>>>>>> 7e46d72 (Final project)
 
     private String name;
     private final List<Car> fleet;
@@ -49,20 +45,12 @@ public class RideCompany {
     }
 
     public void organizeRide(Ride<?, ?> ride) {
-<<<<<<< HEAD
-        System.out.println("Ride organized: " + ride);
-=======
         logger.info("Ride organized: " + ride);
->>>>>>> 7e46d72 (Final project)
     }
 
     public void printAvailableCars() {
         fleet.stream()
                 .filter(Car::isAvailable)
-<<<<<<< HEAD
-                .forEach(car -> System.out.println("Available: " + car));
-=======
                 .forEach(car -> logger.info("Available: " + car));
->>>>>>> 7e46d72 (Final project)
     }
 }

@@ -14,7 +14,6 @@ public class CarService {
         }
     }
 
-    // Метод створення автопарку (як раніше)
     public List<Car> createCarFleet() {
         List<Car> fleet = new ArrayList<>();
         fleet.add(new SUVCar("Toyota RAV4", "Black", 1001));

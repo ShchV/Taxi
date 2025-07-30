@@ -3,20 +3,14 @@ package com.laba.taxi.user.driver;
 import com.laba.taxi.cars.CarBase;
 import com.laba.taxi.interfaces.Car;
 import com.laba.taxi.interfaces.Printable;
-<<<<<<< HEAD
-=======
 import java.util.logging.Logger;
->>>>>>> 7e46d72 (Final project)
 
 import java.util.Objects;
 
 public class Driver extends Employee implements Printable {
-<<<<<<< HEAD
-=======
     private static final Logger logger = Logger.getLogger(Driver.class.getName());
 
 
->>>>>>> 7e46d72 (Final project)
     public Driver(String name, String phoneNumber, Location from, Location to, int id) {
         super(name, phoneNumber, from, to, id);
     }
@@ -33,27 +27,13 @@ public class Driver extends Employee implements Printable {
 
     @Override
     public void introduce() {
-<<<<<<< HEAD
-        System.out.println("laba.DriverInfo.Driver " + name);
-    }
-
-    @Override
-    public void printDetails() {
-        System.out.println(this);
-    }
-
-    @Override
-    public String toString() {
-        return "laba.DriverInfo.Driver " + name + ", phone = " + phoneNumber + ", id = " + id + "";
-=======
         logger.info("DriverInfo: " + name);
     }
 
 
     @Override
     public String toString() {
-        return "DriverInfo: " + name + ", phone = " + phoneNumber + ", id = " + id + "";
->>>>>>> 7e46d72 (Final project)
+        return "DriverInfo: " + name + ", phone = " + phoneNumber + ", id = " + id + "=)";
     }
 
     @Override
@@ -71,12 +51,9 @@ public class Driver extends Employee implements Printable {
 
     public void assignCar(CarBase car) {
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public void printDetails() {
 
     }
->>>>>>> 7e46d72 (Final project)
 }
